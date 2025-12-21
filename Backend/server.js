@@ -15,13 +15,13 @@ const db = mysql.createConnection({
 
 db.connect((err) => {
   if (err) {
-    console.log("My sql failed to connect");
+    console.log("My sql failed to connect.");
     return;
   }
 });
 
 app.get("/users", (req, res) => {
-  const sql = "SELECT * FROM employee";
+  const sql = "SELECT * FROM users";
   db.query(sql, (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
