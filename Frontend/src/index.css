@@ -169,7 +169,7 @@ a {
 
 .explore-btn:hover {
   background: #003ecb;
-  box-shadow: 0 0 15px black;
+  box-shadow: 0 0 20px 20px black;
 }
 
 .contact-us {
