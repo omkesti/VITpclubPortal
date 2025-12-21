@@ -5,6 +5,7 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7fb;
 }
 
 a {
@@ -19,7 +20,7 @@ a {
   align-items: center;
   position: fixed;
   top: 0;
-  background-color: #0056ff;
+  background-color: #1e3a8a;
   box-shadow: 0 0 8px black;
 }
 
@@ -157,7 +158,7 @@ a {
   padding: 1rem;
   width: 15vw;
   font-size: 1.2rem;
-  background: #0056ff;
+  background: #1e3a8a;
   color: white;
   cursor: pointer;
   border: none;
