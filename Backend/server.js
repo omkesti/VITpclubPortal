@@ -1,37 +1,25 @@
-const express = require("express");
-const mysql = require("mysql2");
-const cors = require("cors");
+import express from "express";
+import cors from "cors";
+import db from "./db.js";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "mySql_4678",
-  database: "vitconnect",
+app.get("/", (req, res) => {
+  res.send("Backend running");
 });
 
-db.connect((err) => {
-  if (err) {
-    console.log("My sql failed to connect.");
-    return;
+app.get("/clubs", async (req, res) => {
+  try {
+    const [clubs] = await db.query("SELECT * FROM clubs");
+    res.json(clubs);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Database error" });
   }
 });
 
-app.get("/users", (req, res) => {
-  const sql = "SELECT * FROM users";
-  db.query(sql, (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
-});
-
-app.get("/", (req, res) => {
-  res.status(200).json("From Backend Side");
-});
-
 app.listen(5000, () => {
-  console.log("Server starting...");
+  console.log("Server running on http://localhost:5000");
 });
