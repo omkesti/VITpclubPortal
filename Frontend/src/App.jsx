@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import Clubs from "./pages/Clubs";
 import Events from "./pages/Events";
 import ClubDetails from "./pages/ClubDetails";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -16,6 +18,9 @@ function App() {
         <Route path="/clubs" element={<Clubs />} />
         <Route path="/events" element={<Events />} />
         <Route path="/clubs/:id" element={<ClubDetails />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </>

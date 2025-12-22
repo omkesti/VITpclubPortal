@@ -28,7 +28,9 @@ const Navbar = () => {
           Events
         </Link>
         {/* <img id="noti-icon" src={noti} alt="notification" /> */}
-        <button id="signin-btn">Sign In</button>
+        <Link to="/signup">
+          <button id="signin-btn">Sign In</button>
+        </Link>
       </div>
     </div>
   );

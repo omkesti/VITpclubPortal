@@ -1,6 +1,7 @@
 import loc from "../assets/location.png";
 import mail from "../assets/mail.png";
 import phoneCall from "../assets/phone-call.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -21,7 +22,9 @@ const Home = () => {
               </div>
 
               <div className="explore-btn-div">
-                <button className="explore-btn">Explore Now</button>
+                <Link to="/clubs">
+                  <button className="explore-btn">Explore Now</button>
+                </Link>
               </div>
             </div>
           </div>

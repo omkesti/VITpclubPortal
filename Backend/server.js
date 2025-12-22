@@ -1,10 +1,13 @@
 import express from "express";
 import cors from "cors";
 import db from "./db.js";
+import authRoutes from "./routes/auth.js";
+import authMiddleware from "./middleware/auth.js";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use("/auth", authRoutes);
 
 app.get("/", (req, res) => {
   res.send("Backend running");
@@ -46,11 +49,11 @@ app.get("/clubs/:id", async (req, res) => {
 });
 
 // Applications...
-app.post("/applications", async (req, res) => {
+app.post("/applications", authMiddleware, async (req, res) => {
   const { club_id } = req.body;
 
   // temporary hardcoded user
-  const user_id = 1;
+  const user_id = req.user.id;
 
   try {
     const [existing] = await db.query(
@@ -68,6 +71,29 @@ app.post("/applications", async (req, res) => {
     );
 
     res.json({ message: "Application submitted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Database error" });
+  }
+});
+
+// Events Page
+app.get("/events", async (req, res) => {
+  try {
+    const [events] = await db.query(`
+      SELECT 
+        e.id,
+        e.title,
+        e.event_date,
+        e.venue,
+        c.name AS club_name,
+        c.id AS club_id
+      FROM events e
+      JOIN clubs c ON e.club_id = c.id
+      ORDER BY e.event_date ASC
+    `);
+
+    res.json(events);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Database error" });

@@ -2,7 +2,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const ClubDetails = () => {
-  const studentId = 1; // prototype user
   const { id } = useParams();
   const navigate = useNavigate();
   const [club, setClub] = useState(null);
@@ -23,16 +22,26 @@ const ClubDetails = () => {
 
   const applyToClub = async () => {
     try {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        alert("Please login first");
+        return;
+      }
+
       const res = await fetch("http://localhost:5000/applications", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // 🔐 THIS IS THE MAGIC
+        },
         body: JSON.stringify({ club_id: club.id }),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        alert(data.message);
+        alert(data.error || data.message);
         return;
       }
 
