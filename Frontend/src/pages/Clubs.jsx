@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Clubs = () => {
   const [clubs, setClubs] = useState([]);
@@ -43,6 +44,7 @@ const Clubs = () => {
           <p>
             <b>Category:</b> {club.category}
           </p>
+          <Link to={`/clubs/${club.id}`}>View Details</Link>
         </div>
       ))}
     </div>
