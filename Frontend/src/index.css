@@ -1,7 +1,7 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark *)); */
 * {
   margin: 0;
   padding: 0;
@@ -346,7 +346,7 @@ a {
   color: rgb(76, 76, 76);
 }
 
-@theme inline {
+/* @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -463,4 +463,4 @@ a {
   body {
     @apply bg-background text-foreground;
   }
-}
+} */

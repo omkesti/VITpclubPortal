@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Button } from "../components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../components/ui/dialog";
+// import { Button } from "../components/ui/button";
+// import {
+//   Dialog,
+//   DialogContent,
+//   DialogDescription,
+//   DialogHeader,
+//   DialogTitle,
+//   DialogTrigger,
+// } from "../components/ui/dialog";
+// import { LoginForm } from "../components/login";
 
 const Signup = () => {
   const [form, setForm] = useState({
@@ -29,12 +30,13 @@ const Signup = () => {
   };
 
   return (
-    <div className="content ">
+    <div className="content">
+      {/* <LoginForm /> */}
       <h2>Sign Up</h2>
-      <Dialog>
+      {/* <Dialog>
         <DialogTrigger>Meaw</DialogTrigger>
         <DialogContent>hi mom</DialogContent>
-      </Dialog>
+      </Dialog> */}
       <input
         placeholder="PRN"
         onChange={(e) => setForm({ ...form, prn: e.target.value })}

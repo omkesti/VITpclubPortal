@@ -25,7 +25,7 @@ const Navbar = () => {
         </div>
         <div className="web-name">
           <Link to="/">
-            1<span id="VIT-head">VIT</span>
+            <span id="VIT-head">VIT</span>
             <span id="connect-head">Connect</span>
           </Link>
         </div>
