@@ -1,4 +1,13 @@
 import { useState } from "react";
+import { Button } from "../components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../components/ui/dialog";
 
 const Signup = () => {
   const [form, setForm] = useState({
@@ -20,8 +29,12 @@ const Signup = () => {
   };
 
   return (
-    <div className="content">
+    <div className="content ">
       <h2>Sign Up</h2>
+      <Dialog>
+        <DialogTrigger>Meaw</DialogTrigger>
+        <DialogContent>hi mom</DialogContent>
+      </Dialog>
       <input
         placeholder="PRN"
         onChange={(e) => setForm({ ...form, prn: e.target.value })}
