@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
+      {/* <div className="bg-img"> */}
       <div className="content">
         <div className="main">
           <div className="main-content">
@@ -30,6 +31,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/* </div> */}
 
       {/* CONTACT US */}
       <div className="contact-us">
