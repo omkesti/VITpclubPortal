@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   const [prn, setPrn] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const submit = async () => {
     const res = await fetch("http://localhost:5000/auth/login", {
@@ -16,21 +20,33 @@ const Login = () => {
     if (!res.ok) {
       alert(data.error);
     } else {
-      localStorage.setItem("token", data.token);
+      // 🔥 THIS IS THE KEY CHANGE
+      login(data.user, data.token);
       alert("Login successful");
+      navigate("/");
     }
   };
 
   return (
     <div className="content">
       <h2>Login</h2>
-      <input placeholder="PRN" onChange={(e) => setPrn(e.target.value)} />
+
+      <input
+        placeholder="PRN"
+        value={prn}
+        onChange={(e) => setPrn(e.target.value)}
+      />
+
       <input
         type="password"
         placeholder="Password"
+        value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+
       <button onClick={submit}>Login</button>
+
+      <Link to="/signup">Create One</Link>
     </div>
   );
 };

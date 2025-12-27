@@ -1,25 +1,20 @@
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../assets/VitConnect_Logo.png";
 import { useEffect, useState } from "react";
-// import noti from "../assets/notification_icon.png";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
-  const navigate = useNavigate(); // ✅ TOP LEVEL
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    setIsLoggedIn(!!localStorage.getItem("token"));
-  }, []);
-
-  const logout = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
-    navigate("/login"); // ✅ SAFE
-  };
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
 
   return (
     <div className="navbar">
-      <div className="logo-head">
+      <div
+        className="logo-head"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
         <div className="imgdiv">
           <img id="web-logo" src={logo} alt="logo" />
         </div>
@@ -41,20 +36,15 @@ const Navbar = () => {
         <Link className="nav-links" to="/events">
           Events
         </Link>
-        {/* <img id="noti-icon" src={noti} alt="notification" /> */}
-        <Link to="/signup">
-          <button className="nav-btns">Sign In</button>
-        </Link>
-        {/* <Link to="/login">
-          {token ? (
-            <button onClick={logout}>Logout</button>
-          ) : (
-            <a href="/login">Login</a>
-          )}
-        </Link> */}
 
-        {isLoggedIn ? (
-          <button className="nav-btns" onClick={logout}>
+        {user ? (
+          <button
+            className="nav-btns"
+            onClick={() => {
+              logout();
+              navigate("/login");
+            }}
+          >
             Logout
           </button>
         ) : (

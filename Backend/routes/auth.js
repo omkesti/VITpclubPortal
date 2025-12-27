@@ -46,6 +46,7 @@ router.post("/signup", async (req, res) => {
 });
 
 // Log In
+
 router.post("/login", async (req, res) => {
   try {
     const { prn, password } = req.body;
@@ -70,14 +71,20 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ error: "Invalid credentials" });
     }
 
-    // Create JWT
     const token = jwt.sign(
       { id: user.id, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: "1d" }
     );
 
-    res.json({ token });
+    res.json({
+      token,
+      user: {
+        id: user.id,
+        prn,
+        role: user.role,
+      },
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Server error" });
