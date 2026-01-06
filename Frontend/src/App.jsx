@@ -8,6 +8,7 @@ import Events from "./pages/Events";
 import ClubDetails from "./pages/ClubDetails";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+         <Route path="/contact" element={<ContactUs />} />
       </Routes>
       <Footer />
     </>
