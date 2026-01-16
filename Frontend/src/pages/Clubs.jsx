@@ -246,6 +246,9 @@ const Clubs = () => {
           padding: "2rem",
           paddingTop: "1rem",
           marginTop: "0",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <div

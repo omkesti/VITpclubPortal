@@ -20,7 +20,7 @@ const Footer = () => {
     <footer
       style={{
         width: "100%",
-        marginTop: "3rem",
+        // marginTop: "3rem",
         padding: "2rem 0 1rem 0",
         backgroundColor: "#f8fafc",
         borderTop: "1px solid #e5e7eb",
