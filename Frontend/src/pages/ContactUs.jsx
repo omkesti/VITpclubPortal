@@ -5,6 +5,7 @@ import phoneCall from "../assets/phone-call.png";
 const Contact = () => {
   return (
     <div
+      className="content"
       style={{
         minHeight: "100vh",
         background: "linear-gradient(180deg, #eaf0ff, #f4f6f9)",
@@ -35,8 +36,8 @@ const Contact = () => {
             lineHeight: "1.7",
           }}
         >
-          We’re here to help you. Reach out for any questions, suggestions,
-          or support.
+          We’re here to help you. Reach out for any questions, suggestions, or
+          support.
         </p>
       </div>
 
@@ -98,9 +99,7 @@ const Contact = () => {
             onMouseEnter={(e) =>
               (e.currentTarget.style.transform = "scale(1.06)")
             }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.transform = "scale(1)")
-            }
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             style={{
               width: "100%",
               padding: "0.9rem",
@@ -164,7 +163,7 @@ const Contact = () => {
               transition: "background 0.25s ease, opacity 0.25s ease",
             }}
           >
-            <img src={loc} alt="Address" style={{ width: "1.6rem" }} />
+            <img src={loc} alt="Address" style={{ width: "3rem" }} />
             <div>
               <p style={{ fontWeight: "600", marginBottom: "0.3rem" }}>
                 Address

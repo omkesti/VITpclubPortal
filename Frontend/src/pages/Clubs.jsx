@@ -54,7 +54,7 @@ const Clubs = () => {
         minHeight: "380px",
         backgroundColor: "rgba(255, 255, 255, 0.05)",
         borderRadius: "16px",
-        padding: "1.5rem",
+        // padding: "1.5rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -104,10 +104,10 @@ const Clubs = () => {
         style={{
           position: "relative",
           // top: "64px",
-          width: "100%",
+          width: "95%",
           backgroundColor: "#242424",
           color: "#fde002",
-          padding: "2rem 2rem 1.5rem",
+          padding: "2rem 0 1.5rem 5%",
           boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
           zIndex: 10,
         }}
@@ -251,7 +251,7 @@ const Clubs = () => {
         <div
           style={{
             // marginTop: "200px",
-            padding: "1rem 0",
+            // padding: "1rem 0 1rem 0",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -448,7 +448,7 @@ const Clubs = () => {
                   style={{
                     display: "inline-block",
                     width: "100%",
-                    padding: "0.75rem 1.5rem",
+                    padding: "0.75rem 0 0.75rem 0",
                     backgroundColor: "#00297f",
                     color: "#fde002",
                     borderRadius: "12px",

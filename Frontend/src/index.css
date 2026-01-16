@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  /* box-sizing: border-box; */
 }
 
 body {
@@ -328,13 +329,13 @@ a {
   color: black;
 }
 
-.arReserved {
+/* .arReserved {
   display: flex;
   text-align: center;
   justify-content: center;
   height: 70px;
   color: rgb(76, 76, 76);
-}
+} */
 
 .clubs-head {
   display: flex;
