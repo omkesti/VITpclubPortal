@@ -19,7 +19,7 @@ const Footer = () => {
   return (
     <footer
       style={{
-        width: "100%",
+        width: "100vw",
         marginTop: "3rem",
         padding: "2rem 1rem",
         backgroundColor: "#f8fafc",
@@ -28,7 +28,7 @@ const Footer = () => {
     >
       <div
         style={{
-          maxWidth: "1200px",
+          // maxWidth: "1200px",
           margin: "auto",
           textAlign: "center",
         }}
@@ -42,21 +42,45 @@ const Footer = () => {
             marginBottom: "1rem",
           }}
         >
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" style={iconStyle}>
+          <a
+            href="https://github.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={iconStyle}
+          >
             <FaGithub />
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" style={iconStyle}>
+          <a
+            href="https://linkedin.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={iconStyle}
+          >
             <FaLinkedin />
           </a>
-          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" style={iconStyle}>
+          <a
+            href="https://instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={iconStyle}
+          >
             <FaInstagram />
           </a>
         </div>
 
         {/* Copyright */}
-        <div style={{ fontSize: "0.85rem", color: "#4b5563", marginBottom: "0.4rem" }}>
-          © {year} <span style={{ fontWeight: "600", color: "#1f2937" }}>VitConnect</span> —
-          Vishwakarma Institute of Technology, Pune. All rights reserved.
+        <div
+          style={{
+            fontSize: "0.85rem",
+            color: "#4b5563",
+            marginBottom: "0.4rem",
+          }}
+        >
+          © {year}{" "}
+          <span style={{ fontWeight: "600", color: "#1f2937" }}>
+            VitConnect
+          </span>{" "}
+          — Vishwakarma Institute of Technology, Pune. All rights reserved.
         </div>
 
         <div style={{ fontSize: "0.8rem", color: "#6b7280" }}>

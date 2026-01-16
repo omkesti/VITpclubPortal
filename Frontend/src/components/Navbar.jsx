@@ -98,10 +98,7 @@ const Navbar = () => {
             Logout
           </button>
         ) : (
-          <button
-            className="nav-btns"
-            onClick={() => navigate("/login")}
-          >
+          <button className="nav-btns" onClick={() => navigate("/login")}>
             Login
           </button>
         )}
