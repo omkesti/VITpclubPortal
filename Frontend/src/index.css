@@ -366,3 +366,26 @@ a {
 .club-search:focus {
   border: 1px solid gold;
 }
+
+.events-head-content {
+  display: flex;
+  flex-direction: row;
+  gap: 25vw;
+}
+
+.event-search-filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.search-sort-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
