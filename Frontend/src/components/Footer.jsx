@@ -19,7 +19,7 @@ const Footer = () => {
   return (
     <footer
       style={{
-        width: "100vw",
+        width: "100%",
         marginTop: "3rem",
         padding: "2rem 1rem",
         backgroundColor: "#f8fafc",

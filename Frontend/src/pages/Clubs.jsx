@@ -104,8 +104,8 @@ const Clubs = () => {
         style={{
           position: "relative",
           // top: "64px",
-          width: "100vw",
-          backgroundColor: "#00297f",
+          width: "100%",
+          backgroundColor: "#242424",
           color: "#fde002",
           padding: "2rem 2rem 1.5rem",
           boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
@@ -167,6 +167,7 @@ const Clubs = () => {
           >
             <div style={{ minWidth: "250px", maxWidth: "500px" }}>
               <Input
+                className="club-search"
                 type="text"
                 placeholder="Search clubs by name, code, or category..."
                 value={searchQuery}
@@ -174,7 +175,6 @@ const Clubs = () => {
                 style={{
                   backgroundColor: "rgba(255, 255, 255, 0.95)",
                   color: "#1a1a1a",
-                  border: "2px solid transparent",
                   fontSize: "1rem",
                   padding: "0.75rem 1rem",
                   borderRadius: "1rem",
@@ -252,11 +252,16 @@ const Clubs = () => {
           style={{
             // marginTop: "200px",
             padding: "1rem 0",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            gap: "2rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            flexWrap: "wrap",
+            // gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            // gap: "2rem",
             maxWidth: "1400px",
-            margin: "200px auto 0",
+            // margin: "10px",
+            // margin: "200px auto 0",
           }}
         >
           {loading ? (
@@ -299,175 +304,176 @@ const Clubs = () => {
           ) : (
             // Club cards
             filteredClubs.map((club) => (
-              <div className="club-div">
+              // <div className="club-div">
+              <div
+                key={club.id}
+                className="club-card"
+                style={{
+                  width: "17vw",
+                  margin: "15px",
+                  backgroundColor: "rgba(255, 255, 255, 0.95)",
+                  backdropFilter: "blur(10px)",
+                  borderRadius: "20px",
+                  padding: "1.5rem",
+                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center",
+                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                  cursor: "pointer",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-8px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 16px 40px rgba(0, 0, 0, 0.25)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow =
+                    "0 8px 24px rgba(0, 0, 0, 0.15)";
+                }}
+              >
+                {/* Decorative gradient overlay */}
                 <div
-                  key={club.id}
-                  className="club-card"
                   style={{
-                    width: "17vw",
-                    backgroundColor: "rgba(255, 255, 255, 0.95)",
-                    backdropFilter: "blur(10px)",
-                    borderRadius: "20px",
-                    padding: "1.5rem",
-                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
-                    border: "1px solid rgba(255, 255, 255, 0.2)",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    textAlign: "center",
-                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                    cursor: "pointer",
-                    position: "relative",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "4px",
+                    background:
+                      "linear-gradient(90deg, #fde002, #4988C4, #BDE8F5)",
+                  }}
+                />
+
+                {/* Club Image */}
+                <div
+                  style={{
+                    width: "140px",
+                    height: "140px",
+                    borderRadius: "50%",
+                    marginBottom: "1.5rem",
                     overflow: "hidden",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-8px)";
-                    e.currentTarget.style.boxShadow =
-                      "0 16px 40px rgba(0, 0, 0, 0.25)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow =
-                      "0 8px 24px rgba(0, 0, 0, 0.15)";
+                    border: "4px solid #fde002",
+                    boxShadow: "0 4px 16px rgba(253, 224, 2, 0.3)",
+                    backgroundColor: "#f0f0f0",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
                 >
-                  {/* Decorative gradient overlay */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: "4px",
-                      background:
-                        "linear-gradient(90deg, #fde002, #4988C4, #BDE8F5)",
-                    }}
-                  />
-
-                  {/* Club Image */}
-                  <div
-                    style={{
-                      width: "140px",
-                      height: "140px",
-                      borderRadius: "50%",
-                      marginBottom: "1.5rem",
-                      overflow: "hidden",
-                      border: "4px solid #fde002",
-                      boxShadow: "0 4px 16px rgba(253, 224, 2, 0.3)",
-                      backgroundColor: "#f0f0f0",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {imageErrors[club.id] ? (
-                      <div
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          backgroundColor: "#e0e0e0",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          fontSize: "3rem",
-                        }}
-                      >
-                        🎯
-                      </div>
-                    ) : (
-                      <img
-                        src={`/clubImages/${club.milestones}`}
-                        alt={club.name}
-                        onError={() => handleImageError(club.id)}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                      />
-                    )}
-                  </div>
-
-                  {/* Club Name */}
-                  <h3
-                    style={{
-                      margin: 0,
-                      marginBottom: "0.75rem",
-                      fontSize: "1.4rem",
-                      fontWeight: "700",
-                      color: "#00297f",
-                      lineHeight: "1.3",
-                    }}
-                  >
-                    {club.name}
-                  </h3>
-
-                  {/* Club Code Badge */}
-                  <div
-                    style={{
-                      display: "inline-block",
-                      padding: "0.4rem 0.8rem",
-                      backgroundColor: "#00297f",
-                      color: "#fde002",
-                      borderRadius: "20px",
-                      fontSize: "0.85rem",
-                      fontWeight: "600",
-                      marginBottom: "1rem",
-                      letterSpacing: "0.5px",
-                    }}
-                  >
-                    {club.short_code}
-                  </div>
-
-                  {/* Category Badge */}
-                  <div
-                    style={{
-                      display: "inline-block",
-                      padding: "0.35rem 0.75rem",
-                      backgroundColor: "rgba(73, 136, 196, 0.15)",
-                      color: "#4988C4",
-                      borderRadius: "12px",
-                      fontSize: "0.8rem",
-                      fontWeight: "600",
-                      marginBottom: "1.25rem",
-                      border: "1px solid rgba(73, 136, 196, 0.3)",
-                    }}
-                  >
-                    {club.category}
-                  </div>
-
-                  {/* View Details Button */}
-                  <Link
-                    to={`/clubs/${club.id}`}
-                    style={{
-                      display: "inline-block",
-                      width: "100%",
-                      padding: "0.75rem 1.5rem",
-                      backgroundColor: "#00297f",
-                      color: "#fde002",
-                      borderRadius: "12px",
-                      textDecoration: "none",
-                      fontWeight: "600",
-                      fontSize: "1rem",
-                      transition: "all 0.3s ease",
-                      border: "2px solid transparent",
-                      marginTop: "auto",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#fde002";
-                      e.currentTarget.style.color = "#00297f";
-                      e.currentTarget.style.transform = "scale(1.02)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#00297f";
-                      e.currentTarget.style.color = "#fde002";
-                      e.currentTarget.style.transform = "scale(1)";
-                    }}
-                  >
-                    View Details →
-                  </Link>
+                  {imageErrors[club.id] ? (
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        backgroundColor: "#e0e0e0",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "3rem",
+                      }}
+                    >
+                      🎯
+                    </div>
+                  ) : (
+                    <img
+                      src={`/clubImages/${club.milestones}`}
+                      alt={club.name}
+                      onError={() => handleImageError(club.id)}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  )}
                 </div>
+
+                {/* Club Name */}
+                <h3
+                  style={{
+                    margin: 0,
+                    marginBottom: "0.75rem",
+                    fontSize: "1.4rem",
+                    fontWeight: "700",
+                    color: "#00297f",
+                    lineHeight: "1.3",
+                  }}
+                >
+                  {club.name}
+                </h3>
+
+                {/* Club Code Badge */}
+                <div
+                  style={{
+                    display: "inline-block",
+                    padding: "0.4rem 0.8rem",
+                    backgroundColor: "#00297f",
+                    color: "#fde002",
+                    borderRadius: "20px",
+                    fontSize: "0.85rem",
+                    fontWeight: "600",
+                    marginBottom: "1rem",
+                    letterSpacing: "0.5px",
+                  }}
+                >
+                  {club.short_code}
+                </div>
+
+                {/* Category Badge */}
+                <div
+                  style={{
+                    display: "inline-block",
+                    padding: "0.35rem 0.75rem",
+                    backgroundColor: "rgba(73, 136, 196, 0.15)",
+                    color: "#4988C4",
+                    borderRadius: "12px",
+                    fontSize: "0.8rem",
+                    fontWeight: "600",
+                    marginBottom: "1.25rem",
+                    border: "1px solid rgba(73, 136, 196, 0.3)",
+                  }}
+                >
+                  {club.category}
+                </div>
+
+                {/* View Details Button */}
+                <Link
+                  to={`/clubs/${club.id}`}
+                  style={{
+                    display: "inline-block",
+                    width: "100%",
+                    padding: "0.75rem 1.5rem",
+                    backgroundColor: "#00297f",
+                    color: "#fde002",
+                    borderRadius: "12px",
+                    textDecoration: "none",
+                    fontWeight: "600",
+                    fontSize: "1rem",
+                    transition: "all 0.3s ease",
+                    border: "2px solid transparent",
+                    marginTop: "auto",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#fde002";
+                    e.currentTarget.style.color = "#00297f";
+                    e.currentTarget.style.transform = "scale(1.02)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#00297f";
+                    e.currentTarget.style.color = "#fde002";
+                    e.currentTarget.style.transform = "scale(1)";
+                  }}
+                >
+                  View Details →
+                </Link>
               </div>
+              // </div>
             ))
           )}
         </div>
